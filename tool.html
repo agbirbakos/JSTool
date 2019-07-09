@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width,initial-scale=1" name="viewport">
+	<meta content="telephone=no" name="format-detection">
+	<title>GrainMoist Tool • Iowa State University</title>
+	<link href="https://cdn.theme.iastate.edu/nimbus-sans/css/nimbus-sans.css" rel="stylesheet">
+	<link href="https://cdn.theme.iastate.edu/merriweather/css/merriweather.css" rel="stylesheet">
+	<link href="https://cdn.theme.iastate.edu/font-awesome/css/font-awesome.css" rel="stylesheet">
+	<!-- <link href="css/iastate.legacy.min.css" rel="stylesheet"> // Include if your content requires legacy IASTATE theme CSS -->
+	<link href="css/iastate.min.css" rel="stylesheet">
+	<link href="css/toolstyle.css" rel="stylesheet">
+	<link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+	<!-- <link href="css/site.css" rel="stylesheet" media="all"> // Site-specific CSS and theme overrides -->
+	<link href="https://cdn.theme.iastate.edu/favicon/favicon.ico" rel="icon" type="image/x-icon">
+	<link href="https://cdn.theme.iastate.edu/favicon/favicon.png" rel="icon" type="">
+	<link href="https://cdn.theme.iastate.edu/favicon/apple-touch-icon.png" rel="icon">
+	<link data-require="leaflet@0.7.3" data-semver="0.7.3" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />
+
+
+</head>
+
+
+
+<body class="">
+
+<p class="hidden"><b>This theme uses "root" links to dependencies and assets (CSS, JS, images, etc.). Place all theme files and directories at the root of your web server for this page to render as intended.</b></p>
+
+<!-- skip-nav -->
+<div class="skip-nav"><a href="#main-content">Skip to main content</a></div>
+<!-- /skip-nav -->
+
+<!-- header -->
+<header>
+
+<!-- navbar-iastate -->
+<nav class="navbar-iastate">
+	<div class="container">
+
+
+		<!-- /navbar-iastate-right -->
+
+	</div>
+</nav>
+<!-- /navbar-iastate -->
+
+<!-- navbar-site -->
+<nav class="navbar-site">
+	<div class="container">
+
+		<div class="navbar-site-wordmark">
+			<a href="https://www.extension.iastate.edu/" title="Home" class="wordmark-unit">
+				<span class="wordmark-isu">Iowa State University</span>
+				<span class="wordmark-unit-title">Extension and Outreach</span>
+			</a>
+		</div>
+		<div class="navbar-header visible-xs visible-sm">
+			<button id="navbar-menu-button" type="button" class="navbar-toggle navbar-toggle-left collapsed" data-toggle="collapse" data-target="#navbar-menu-collapse, #navbar-site-links-collapse" aria-expanded="false">
+				<span class="navbar-toggle-icon menu-icon">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</span>
+				<span class="navbar-toggle-label">
+					Menu <span class="sr-only">Toggle</span>
+				</span>
+			</button>
+		</div>
+
+	</div>
+</nav>
+<!-- /navbar-site -->
+
+</header>
+<!-- /header -->
+
+<!-- navs -->
+<div id="navs">
+
+<!-- navbar-menu -->
+<div class="navbar-menu-wrapper">
+<nav class="navbar navbar-menu navbar-default navbar-static-top navbar-caps" role="navigation">
+	<div class="container">
+	
+		<div class="collapse navbar-collapse" id="navbar-menu-collapse">
+			<ul class="nav navbar-nav" >
+				<li><a href="#"></a></li>
+			</ul>
+		</div>
+
+	</div>
+</nav>
+</div>
+<!-- /navbar-menu -->
+
+</div>
+<!-- /navs -->
+
+<!-- post-nav -->
+<div id="post-nav">
+<!-- Place content here that you want displayed below navigation and above content. This is a great place to put banners, jumbotrons, carousels, and hero images. This area is not constrained by the theme "container" width, so content here can be full window width. -->
+</div>
+<!-- /post-nav -->
+
+
+
+<!-- main -->
+<main role="main" id="main-content">
+	<div class="container">
+	
+	<h1>Corn dry down forecasting tool</h1><hr>
+	
+	<div class="panel-group" id="accordion">
+    <div class="panel-panel-default" id="panel1">
+        <div class="panel-heading">
+             <h2 class="panel-title" id="panel1_head"><a data-toggle="collapse" data-target="#collapseOne" href="#collapseOne">Required Information</a></h2>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse in">
+            <div class="panel-body">
+			<table>
+			<tr>
+			    <td><h3>Field location</h3></td>
+				<td colspan = "2", style = "text-align: right"><button type="button" class="btn btn-danger" onclick="getData()">Run forecast</button></td>
+			</tr>
+			<tr>
+			    <td>Latitude:</td>
+				<td rowspan = "4" colspan = "2"><div id ="map"></div></td>
+			</tr>
+			<tr>				
+				<td><input id="latitude" value="42.02" type="text" maxlength="5" size="5"/ disabled></td>
+			</tr>
+			<tr>
+			    <td>Longitude:</td>
+			</tr>
+			<tr>
+				<td><input id="longitude" value="-93.76" type="text" maxlength="5" size="5"/ disabled></td>
+			</tr>
+			<tr>
+				<td colspan = "3", style = "text-align: left"><h3>Sample details<h3></td>
+			</tr>
+			<tr>		
+				<td>Sampling date:</td>
+				<td>Grain moisture content (%):</td> 
+				<td>Drying cost ($ per % moisture per bu):</td>
+			  </tr>
+			  <tr>
+				<td><input type="date" id="obsdate" value="2018-09-15" min="2018-08-15" max="2018-11-01"></td>
+				<td><input type="number" id="M0" value="30" min="20" max="42" step = "0.5"></td>
+				<td><input type="number" id="dryFee" value="0.045" min="0" max="0.1" step = "0.001"></td>
+				</tr>
+			</table>
+				<div class="panel-heading">
+					<h2 class="panel-title" id="panel2_head"><a data-toggle="collapse" data-target="#collapseTwo" href="#collapseTwo" class="collapsed">Report</a></h2>
+				</div>
+				<div id="collapseTwo" class="panel-collapse collapse">
+					<div class="panel-body">
+						<div id="container" style="min-width: 310px; max-width: 600px; height: 400px"></div>
+					</div>
+        		</div>
+    </div>
+	</div>
+	</div>
+
+</main>
+
+
+
+<!-- /main -->
+
+<!-- footer -->
+<footer role="contentinfo">
+	<div class="container">
+		<div class="row">
+
+			<!-- footer-associates -->
+			<section class="footer-associates col-sm-12 col-md-3">
+				<ul>
+					<li><a href="http://iastate.edu"><img src="https://cdn.theme.iastate.edu/img/isu-stacked.svg" class="wordmark-isu" alt="Iowa State University"></a></li>
+				</ul>
+			</section>
+
+			<!-- footer-contact -->
+			<section class="footer-contact col-sm-12 col-md-3">
+				<p>
+					<strong>Department of Agronomy</strong><br>
+					<a href="https://www.google.com/maps/place/Iowa+State+University+Agronomy+Department/@42.0281942,-93.6421855,18.75z/data=!4m5!3m4!1s0x87ee70a28688a305:0x4015a18b92abe9cf!8m2!3d42.0283477!4d-93.6423453">Agronomy Hall,<br>
+					Ames, IA 50011</a>
+				</p>
+				<a href="mailto:contact@iastate.edu">contact@iastate.edu</a><br>
+				<a href="tel:515-294-4111">515-294-4111 phone</a><br>
+				515-294-4111 fax 
+			</section>	
+
+			<!-- footer-social -->
+			<section class="footer-social col-sm-12 col-md-3">
+				<ul class=" labeled">
+				<li><a href="http://facebook.com/IowaStateU/"><span class="fa fa-external-link-square" aria-label="hidden"></span>Facebook</a></li>
+				<li><a href="http://twitter.com/iowastateu?lang=en"><span class="fa fa-external-link-square" aria-label="hidden"></span>Twitter</a></li>
+				<li><a href="http://instagram.com/iowastateu/"><span class="fa fa-external-link-square" aria-label="hidden"></span>Instagram</a></li>
+				<li><a href="http://youtube.com/user/iowastateu"><span class="fa fa-external-link-square" aria-label="hidden"></span>YouTube</a></li>
+				<li><a href="http://www.news.iastate.edu/rss/rss.php"><span class="fa fa-external-link-square" aria-label="hidden"></span>RSS</a></li>
+				</ul>
+			</section>	
+
+			<!-- footer-legal -->
+			<section class="footer-legal col-sm-12 col-md-3">
+				<p>Copyright &copy; 1995-<script>document.write(new Date().getFullYear())</script><br>
+								Iowa State University<br>
+								of Science and Technology<br>
+								All rights reserved.</p>
+				<ul>
+					<li><a href="http://www.policy.iastate.edu/policy/discrimination">Non-discrimination Policy</a></li>
+					<li><a href="http://www.policy.iastate.edu/electronicprivacy">Privacy Policy</a></li>
+					<li><a href="http://digitalaccess.iastate.edu">Digital Access &amp; Accessibility</a></li>
+				</ul>
+			</section>
+
+		</div>
+	</div>
+</footer>
+<!-- /footer -->
+
+	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="js/vendor/bootstrap-submenu.min.js"></script>
+	<script src="https://code.highcharts.com/highcharts.js"></script>
+	<script src="https://code.highcharts.com/highcharts-more.js"></script>
+	<script src="https://code.highcharts.com/modules/exporting.js"></script>
+	<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+	<script src="js/iastate.js"></script>
+	<script>
+	
+	var today ;//= new Date();
+	var dd = 25;//today.getDate();
+	var mm = 9;//today.getMonth()+1; //January is 0!
+	var yyyy = 2018;//today.getFullYear();
+	
+	if(dd<10){
+        dd='0'+dd
+    } 
+    if(mm<10){
+        mm='0'+mm
+    } 
+	
+	today = yyyy+''+mm+''+dd;
+	document.getElementById("obsdate").setAttribute("max", yyyy+'-'+mm+'-'+dd);
+	
+	</script>
+	<script data-require="leaflet@0.7.3" data-semver="0.7.3" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
+    <script src="js/map.js"></script>
+	<script src="js/drydown5.js"></script> 
+	
+
+</body>
+</html>
